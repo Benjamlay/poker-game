@@ -1,5 +1,6 @@
 #ifndef HANDRANKING_H
 #define HANDRANKING_H
+#include <string>
 
 enum class Hand
 {
@@ -21,6 +22,8 @@ class hands
 
 public:
 
-	void hand_to_string();
+	std::string hand_to_string(Hand hand);
+
+	bool is_flush();
 };
 #endif // HANDRANKING_H

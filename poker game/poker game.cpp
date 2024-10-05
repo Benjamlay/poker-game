@@ -62,7 +62,7 @@ int main()
 
 	//qui gagne ?
 
-	if(player1.CardValues() > player2.CardValues())
+	/*if(player1.CardValues() > player2.CardValues())
 	{
 		std::cout << "player 1 won \n";
 	}
@@ -74,7 +74,7 @@ int main()
 	{
 		std::cout << "player 2 won \n";
 	}
-	
+	*/
 
 	
 	return 0;
