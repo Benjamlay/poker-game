@@ -1,6 +1,10 @@
 #ifndef HANDRANKING_H
 #define HANDRANKING_H
 #include <string>
+#include <vector>
+#include "player.h"
+#include "table.h"
+#include "card.h"
 
 enum class Hand
 {
@@ -18,12 +22,30 @@ enum class Hand
 
 class hands
 {
-
+	std::vector<Card> CombinedHandAndTable_;
 
 public:
 
+	hands() = default;
+	hands(std::vector<Card>CombinedHandAndTable) : CombinedHandAndTable_(CombinedHandAndTable){}
+
+	std::vector<Card>CombinedHandAndTable(player& player, Table& table);
+	void Display();
 	std::string hand_to_string(Hand hand);
 
+
+	bool is_pair();
+	bool is_two_pair();
+	bool is_threeOfAKind();
+	bool is_straight();
 	bool is_flush();
+	bool is_fullHouse();
+	bool is_for_of_a_kind();
+	bool is_straight_flush();
+	bool is_royal_flush();
 };
+
+
+
+
 #endif // HANDRANKING_H

@@ -23,6 +23,7 @@ public:
 
 	int PlayerValueCards(Card& other);
 	
+	int PlayerSuitCards(Card& other);
 
 	std::string to_string() const;
 	

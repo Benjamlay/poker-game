@@ -37,7 +37,7 @@ enum class Value
 std::string SuitToString(Suit suit);
 std::string ValueToString(Value value);
 
-
+bool StillWantToPlay();
 
 
 

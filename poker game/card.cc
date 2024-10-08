@@ -18,6 +18,11 @@ int Card::PlayerValueCards(Card& other)
 	return(static_cast<int>(this->value_) + static_cast<int>(other.value_));
 }
 
+int Card::PlayerSuitCards(Card& other)
+{
+	return(static_cast<int>(this->suit_) + static_cast<int>(other.suit_));
+}
+
 std::string Card::to_string() const
 {
 	return ValueToString(value_) + " of " + SuitToString(suit_);

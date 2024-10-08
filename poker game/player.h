@@ -6,17 +6,22 @@ class player
 {
 private:
 
-	Card card1;
-	Card card2;
+	std::vector<Card> cards;
 
 
 public:
 
-	player(Card one, Card two) : card1(one), card2(two){}
-	
+	player(Card card1, Card card2)
+	{
+		cards.push_back(card1);
+		cards.push_back(card2);
+	}
+
+	const Card& getCard1();
+	const Card& getCard2();
 
 	void Display();
-	int CardValues();
+	//int CardValues();
 };
 
 

@@ -14,3 +14,8 @@ void Table::Display()
 		std::cout << table_[i].to_string() << std::endl;
 	}
 }
+
+std::array<Card, 5> Table::GetTable()
+{
+	return table_;
+}
