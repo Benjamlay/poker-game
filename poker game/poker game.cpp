@@ -10,18 +10,14 @@
 
 int main()
 {
-
-	
-	//mélanger le deck
-
 	do
 	{
 		Table table;
-		hands combinedHandAndTable;
+		Hand combinedHandAndTableP1;
+		Hand combinedHandAndTableP2;
 		deck deck;
 		deck.shuffle();
 
-		//choix des cartes des joueurs
 		player player1(deck.picka_card(), deck.picka_card());
 		std::cout << "card player one :\n";
 		std::cout << '\n';
@@ -41,7 +37,6 @@ int main()
 		table.Display();
 		std::cout << "\n\n";
 
-
 		// phase de pari
 		std::cout << "turn : \n";
 		table.table_draw(deck.picka_card());
@@ -54,13 +49,35 @@ int main()
 		table.Display();
 		std::cout << "\n\n";
 
-		combinedHandAndTable.CombinedHandAndTable(player1, table);
-		if (combinedHandAndTable.is_pair())
+		combinedHandAndTableP1.CombinedHandAndTable(player1, table);
+		HandRanking handrankingP1 = hand_to_Handranking(combinedHandAndTableP1);
+		combinedHandAndTableP1.hand_to_string(handrankingP1);
+
+		combinedHandAndTableP2.CombinedHandAndTable(player2, table);
+		HandRanking handrankingP2 = hand_to_Handranking(combinedHandAndTableP2);
+		combinedHandAndTableP1.hand_to_string(handrankingP2);
+
+		if(handrankingP1 > handrankingP2)
 		{
-			std::cout << "you have a pair" << std::endl;
+			std::cout << "player 1 won \n";
 		}
-		
+		else if(handrankingP1 < handrankingP2)
+		{
+			std::cout << "player 2 won \n";
+		}
+		else if(handrankingP1 == handrankingP2)
+		{
+			if(cardsvalues(player1) > cardsvalues(player2))
+			{
+				std::cout << "player 1 won \n";
+			}
+			else if (cardsvalues(player1) < cardsvalues(player2))
+			{
+				std::cout << "player 2 won \n";
+			}
+		}
 	} while (StillWantToPlay());
+
 	
 	
 	return 0;

@@ -19,10 +19,12 @@ public:
 
 	const Card& getCard1();
 	const Card& getCard2();
+	
+	//bool operator<(player& other);
 
 	void Display();
 	//int CardValues();
 };
 
-
+int cardsvalues(player& player);
 #endif // PLAYER_H

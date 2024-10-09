@@ -4,7 +4,7 @@
 
 deck::deck()
 {
-	for (Value v = Value::two; v <= Value::Ace; v = static_cast<Value>(static_cast<int>(v) + 1))
+	for (Value v = Value::two; v <= Value::ace; v = static_cast<Value>(static_cast<int>(v) + 1))
 	{
 		for (Suit s = Suit::club; s <= Suit::spade; s = static_cast<Suit>(static_cast<int>(s) + 1))
 		{

@@ -1,27 +1,26 @@
-#include <set>
+
 
 #include "Handranking.h"
 
-std::string hands::hand_to_string(Hand hand)
+std::string Hand::hand_to_string(HandRanking hand)
 {
 	switch(hand)
 	{
-	case Hand::high_card: return "high card";
-	case Hand::one_pair: return "one_pair";
-	case Hand::two_pair: return "two_pair";
-	case Hand::three_of_a_kind: return "three_of_a_kind";
-	case Hand::Straight: return "Straight";
-	case Hand::Flush: return "Flush";
-	case Hand::Full_House: return "Full_House";
-	case Hand::Four_of_a_Kind: return "Four_of_a_Kind";
-	case Hand::Straight_Flush: return "Straight_Flush";
-	case Hand::Royal_Flush: return "Royal_Flush";
-	default: return "don't know this hand";
+	case HandRanking::high_card:  std::cout << "high card " << std::endl; return "high card ";
+	case HandRanking::one_pair: std::cout << "one_pair" << std::endl; return "one_pair";
+	case HandRanking::two_pair: std::cout << "two_pair" << std::endl; return "two_pair";
+	case HandRanking::three_of_a_kind: std::cout << "three_of_a_kind" << std::endl; return "three_of_a_kind";
+	case HandRanking::Straight: std::cout << "Straight" << std::endl; return "Straight";
+	case HandRanking::Flush: std::cout << "Flush" << std::endl; return "Flush";
+	case HandRanking::Full_House: std::cout << "Full_House" << std::endl; return "Full_House";
+	case HandRanking::Four_of_a_Kind: std::cout << "Four_of_a_Kind " << std::endl; return "Four_of_a_Kind";
+	case HandRanking::Straight_Flush: std::cout << "Straight_Flush" << std::endl; return "Straight_Flush";
+	case HandRanking::Royal_Flush: std::cout << "Royal_Flush" << std::endl; return "Royal_Flush";
+	default: std::cout << "don't know this hand" << std::endl; return "don't know this hand";
 	}
 }
-std::vector<Card> hands::CombinedHandAndTable(player& player, Table& table)
+std::vector<Card> Hand::CombinedHandAndTable(player& player, Table& table)
 {
-	//std::vector<Card> CombinedHand;
 
 	CombinedHandAndTable_.push_back(player.getCard1());
 	CombinedHandAndTable_.push_back(player.getCard2());
@@ -32,15 +31,8 @@ std::vector<Card> hands::CombinedHandAndTable(player& player, Table& table)
 	return CombinedHandAndTable_;
 }
 
-void hands::Display()
-{
-	for(Card& card : CombinedHandAndTable_)
-	{
-		std::cout << card.to_string() << std::endl;
-	}
-}
 
-bool hands::is_pair()
+bool Hand::is_pair()
 {
 	for(int i = 0; i < CombinedHandAndTable_.size(); i++)
 	{
@@ -55,13 +47,13 @@ bool hands::is_pair()
 	return false;
 }
 
-bool hands::is_two_pair()
+bool Hand::is_two_pair()
 {
 	std::vector<int> values(13, 0);
 
 	for(Card& card : CombinedHandAndTable_)
 	{
-		values[static_cast<int>(card.value_)]++;
+		values[static_cast<int>(card.value_) - static_cast<int>(Value::two)]++;
 	}
 
 	int pairfound = 0;
@@ -81,7 +73,7 @@ bool hands::is_two_pair()
 
 	return false;
 }
-bool hands::is_threeOfAKind()
+bool Hand::is_three_Of_A_Kind()
 {
 	for (int i = 0; i < CombinedHandAndTable_.size(); i++)
 	{
@@ -99,7 +91,7 @@ bool hands::is_threeOfAKind()
 	return false;
 }
 
-bool hands::is_straight()
+bool Hand::is_straight()
 {
 	std::vector<int> values;
 	for(Card& card : CombinedHandAndTable_)
@@ -130,7 +122,7 @@ bool hands::is_straight()
 	return false;
 }
 
-bool hands::is_flush()
+bool Hand::is_flush()
 {
 	std::vector<int> suits(4, 0);
 	for (Card& card : CombinedHandAndTable_)
@@ -149,13 +141,13 @@ bool hands::is_flush()
 	return false;
 }
 
-bool hands::is_fullHouse()
+bool Hand::is_fullHouse()
 {
 	std::vector<int> values(13, 0);
 
 	for(Card& card : CombinedHandAndTable_)
 	{
-		values[static_cast<int>(card.value_)]++;
+		values[static_cast<int>(card.value_) - static_cast<int>(Value::two)]++;
 	}
 
 	bool is_pair = false;
@@ -181,13 +173,22 @@ bool hands::is_fullHouse()
 }
 
 
-bool hands::is_for_of_a_kind()
+bool Hand::is_four_of_a_kind()
 {
 	std::vector<int> values(13, 0);
 
 	for(Card& card : CombinedHandAndTable_)
 	{
-		values[static_cast<int>(card.value_)]++;
+		//int valueIdx = static_cast<int>(card.value_) - static_cast<int>(Value::two);
+		//if(valueIdx >= 0)
+		//{
+		//	values[valueIdx]++;
+		//}
+		//else
+		//{
+		//	std::cout << "value idx fourOfAKind inférieur a zero \n";
+		//}
+		values[static_cast<int>(card.value_) - static_cast<int>(Value::two)]++;
 	}
 
 
@@ -201,7 +202,7 @@ bool hands::is_for_of_a_kind()
 	return false;
 }
 
-bool hands::is_straight_flush()
+bool Hand::is_straight_flush()
 {
 	if(is_straight() && is_flush())
 	{
@@ -213,7 +214,7 @@ bool hands::is_straight_flush()
 	}
 }
 
-bool hands::is_royal_flush()
+bool Hand::is_royal_flush()
 {
 	if (is_flush())
 	{
@@ -225,17 +226,62 @@ bool hands::is_royal_flush()
 
 		}
 
-		std::sort(values.begin(), values.end());
+		//std::sort(values.begin(), values.end());
 
 		if(values.find(static_cast<int>(Value::ten)) != values.end() && 
 			values.find(static_cast<int>(Value::jack)) != values.end()&&
 			values.find(static_cast<int>(Value::queen)) != values.end()&&
 			values.find(static_cast<int>(Value::king)) != values.end()&&
-			values.find(static_cast<int>(Value::Ace)) != values.end())
+			values.find(static_cast<int>(Value::ace)) != values.end())
 		{
 			return true;
 		}
 	}
 	return false; 
 }
-	
+
+HandRanking hand_to_Handranking(Hand& hand)
+{
+
+	if(hand.is_royal_flush())
+	{
+
+		return HandRanking::Royal_Flush;
+	}
+	else if (hand.is_straight_flush())
+	{
+		return HandRanking::Straight_Flush;
+	}
+	else if (hand.is_four_of_a_kind())
+	{
+		return HandRanking::Four_of_a_Kind;
+	}
+	else if (hand.is_fullHouse())
+	{
+		return HandRanking::Full_House;
+	}
+	else if (hand.is_flush())
+	{
+		return HandRanking::Flush;
+	}
+	else if (hand.is_straight())
+	{
+		return HandRanking::Straight;
+	}
+	else if (hand.is_three_Of_A_Kind())
+	{
+		return HandRanking::three_of_a_kind;
+	}
+	else if (hand.is_two_pair())
+	{
+		return HandRanking::two_pair;
+	}
+	else if (hand.is_pair())
+	{
+		return HandRanking::one_pair;
+	}
+
+	return HandRanking::high_card;
+}
+
+

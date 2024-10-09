@@ -30,7 +30,7 @@ enum class Value
 	jack,
 	queen,
 	king,
-	Ace,
+	ace,
 
 };
 

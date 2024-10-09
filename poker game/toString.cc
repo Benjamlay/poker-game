@@ -30,7 +30,7 @@ std::string ValueToString(Value value)
 	case Value::jack: return "jack";
 	case Value::queen: return "queen";
 	case Value::king: return "king";
-	case Value::Ace: return "ace";
+	case Value::ace: return "ace";
 	default: return "doesn't exist";
 	}
 }
@@ -43,6 +43,7 @@ bool StillWantToPlay()
 	std::cin >> reponse;
 	if (reponse == 'Y' || reponse == 'y')
 	{
+		std::cout << '\n';
 		return true;
 	}
 	else if (reponse == 'N' || reponse == 'n')

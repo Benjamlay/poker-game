@@ -21,6 +21,21 @@ const Card& player::getCard2()
 {
 	return cards[1];
 }
+int cardsvalues(player& player)
+{
+	return static_cast<int>(player.getCard1().value_) + static_cast<int>(player.getCard2().value_);
+}
+//bool player::operator<(player& other)
+//{
+//	 if(cardsvalues(this))
+//	 {
+//		 return true;
+//	 }
+//	 else
+//	 {
+//		 return false;
+//	 }
+//}
 
 
 //int player::CardValues()
