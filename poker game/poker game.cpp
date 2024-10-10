@@ -35,12 +35,12 @@ int main()
 		int pot = player1.currentBet_;
 		std::cout << '\n';
 		std::cout << "Player 2, your turn\n\n";
-		int wich_Bet = Respond_To_Bet(player2, lastBet, pot);
-		if (wich_Bet == 1)
+		int which_Bet = Respond_To_Bet(player2, lastBet, pot);
+		if (which_Bet == 1)
 		{
 			continue;
 		}
-		else if (wich_Bet == 3) {
+		else if (which_Bet == 3) {
 			Respond_to_Raise(player2, lastBet, pot);
 		}
 
@@ -65,7 +65,7 @@ int main()
 		{
 			continue;
 		}
-		else if (wich_Bet == 3) {
+		else if (which_Bet == 3) {
 			Respond_to_Raise(player2, lastBet, pot);
 		}
 
@@ -88,7 +88,7 @@ int main()
 		{
 			continue;
 		}
-		else if (wich_Bet == 3) {
+		else if (which_Bet == 3) {
 			Respond_to_Raise(player2, lastBet, pot);
 		}
 
@@ -111,7 +111,7 @@ int main()
 		{
 			continue;
 		}
-		else if (wich_Bet == 3) {
+		else if (which_Bet == 3) {
 			Respond_to_Raise(player2, lastBet, pot);
 		}
 
