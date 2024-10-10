@@ -58,7 +58,6 @@ int main()
 		table.Display();
 		std::cout << "\n\n";
 
-		// phase de pari
 		player1.PlaceBet();
 		std::cout << '\n';
 		std::cout << "Player 2, your turn\n\n";
@@ -154,11 +153,7 @@ int main()
 				std::cout << "player 2 won \n";
 			}
 		}
-		//std::cout << '\n';
-
-
-
-
+		std::cout << '\n';
 	} while (StillWantToPlay());
 	return 0;
 }

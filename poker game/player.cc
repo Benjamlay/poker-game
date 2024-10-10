@@ -66,7 +66,7 @@ void player::Raise(int& lastBet, int& pot)
 {
 	if (lastBet <= coinsLeft_)
 	{
-		std::cout << "how much do you want to bet ?" << std::endl;
+		std::cout << "raise to : " << std::endl;
 		int raise;
 		std::cin >> raise;
 		if (raise <= coinsLeft_)
