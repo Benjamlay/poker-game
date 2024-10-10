@@ -140,6 +140,7 @@
     <ClInclude Include="deck.h" />
     <ClInclude Include="enum hands.h" />
     <ClInclude Include="Handranking.h" />
+    <ClInclude Include="intro.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="table.h" />
   </ItemGroup>

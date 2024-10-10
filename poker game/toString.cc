@@ -51,3 +51,8 @@ bool StillWantToPlay()
 		return false;
 	}
 }
+
+bool StillHasCoins()
+{
+	return true;
+}

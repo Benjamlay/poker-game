@@ -56,5 +56,8 @@
     <ClInclude Include="Handranking.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="intro.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

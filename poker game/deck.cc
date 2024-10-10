@@ -8,7 +8,7 @@ deck::deck()
 	{
 		for (Suit s = Suit::club; s <= Suit::spade; s = static_cast<Suit>(static_cast<int>(s) + 1))
 		{
-			deck_.emplace_back(static_cast<Value>(v), static_cast<Suit>(s));
+			deck_.emplace_back((v), (s));
 			//deck_.push_back({ v, s });
 		}
 	}
