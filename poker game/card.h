@@ -16,17 +16,17 @@ public:
 	}
 
 	bool operator==(Card& other) const;
-	
+
 
 	bool operator>(Card& other) const;
-	
+
 
 	int PlayerValueCards(Card& other);
-	
+
 	int PlayerSuitCards(Card& other);
 
 	std::string to_string() const;
-	
+
 
 };
 #endif // CARD_H

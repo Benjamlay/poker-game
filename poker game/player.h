@@ -4,7 +4,7 @@
 
 class player
 {
-	public:
+public:
 
 	std::vector<Card> cards;
 	int currentBet_;
@@ -27,7 +27,7 @@ public:
 	void Call(int& lastBet, int& pot);
 	void Raise(int& lastBet, int& pot);
 	void AllIn(int& lastBet, int& pot);
-	
+
 };
 int Respond_To_Bet(player& player, int& LastBet, int& pot);
 int Respond_to_Raise(player& player, int& lastBet, int& pot);

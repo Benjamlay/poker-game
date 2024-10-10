@@ -9,7 +9,7 @@ void Table::table_draw(Card card)
 
 void Table::Display()
 {
-	for(int i = 0; i < card_index_; i++)
+	for (int i = 0; i < card_index_; i++)
 	{
 		std::cout << table_[i].to_string() << std::endl;
 	}

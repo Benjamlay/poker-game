@@ -30,10 +30,10 @@ int cardsvalues(player& player)
 void player::PlaceBet()
 {
 	int bet;
-	std::cout << "bet something :\n";
+	std::cout << "player 1, bet something :\n";
 	std::cin >> bet;
 	system("cls");
-	if(bet <= coinsLeft_)
+	if (bet <= coinsLeft_)
 	{
 		coinsLeft_ -= bet;
 		currentBet_ += bet;
@@ -52,7 +52,7 @@ void player::Fold()
 }
 void player::Call(int& lastBet, int& pot)
 {
-	if(lastBet <= coinsLeft_)
+	if (lastBet <= coinsLeft_)
 	{
 		coinsLeft_ -= lastBet;
 		pot = lastBet + lastBet;
@@ -64,12 +64,12 @@ void player::Call(int& lastBet, int& pot)
 
 void player::Raise(int& lastBet, int& pot)
 {
-	if(lastBet <= coinsLeft_)
+	if (lastBet <= coinsLeft_)
 	{
 		std::cout << "how much do you want to bet ?" << std::endl;
 		int raise;
 		std::cin >> raise;
-		if(raise <= coinsLeft_)
+		if (raise <= coinsLeft_)
 		{
 			coinsLeft_ -= raise;
 			pot = raise + lastBet;
@@ -94,9 +94,10 @@ void player::AllIn(int& lastBet, int& pot)
 int Respond_To_Bet(player& player, int& lastBet, int& pot)
 {
 	int action;
-	std::cout << "choose a number :\n1.Fold \n 2. Call \n 3. Raise \n 4. All in\n";
+	std::cout << "choose a number :\n 1.Fold \n 2. Call \n 3. Raise \n 4. All in\n";
 	std::cin >> action;
-	switch(action)
+
+	switch (action)
 	{
 	case 1: player.Fold(); return 1;
 	case 2: player.Call(lastBet, pot); return 2;
@@ -115,7 +116,7 @@ int Respond_to_Raise(player& player, int& lastBet, int& pot)
 	{
 	case 1: player.Fold(); return 1;
 	case 2: player.Call(lastBet, pot); return 2;
-	default: std::cout << "non valid Respond_To_Bet \n"; return 0;
+
 	}
 }
 

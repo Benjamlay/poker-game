@@ -12,7 +12,7 @@ public:
 public:
 
 	deck();
-	
+
 	void shuffle();
 
 	bool isEmpty();
@@ -21,8 +21,8 @@ public:
 
 	void displayAllDeck();
 
-	
-	
+
+
 };
 
 #endif DECK_H

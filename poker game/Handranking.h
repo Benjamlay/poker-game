@@ -28,7 +28,7 @@ class Hand
 public:
 
 	Hand() = default;
-	Hand(std::vector<Card>CombinedHandAndTable) : CombinedHandAndTable_(CombinedHandAndTable){}
+	Hand(std::vector<Card>CombinedHandAndTable) : CombinedHandAndTable_(CombinedHandAndTable) {}
 
 	std::vector<Card>CombinedHandAndTable(player& player, Table& table);
 	std::string hand_to_string(HandRanking hand);
@@ -43,7 +43,7 @@ public:
 	bool is_straight_flush();
 	bool is_royal_flush();
 
-	
+
 	void best_hand(HandRanking hand);
 };
 

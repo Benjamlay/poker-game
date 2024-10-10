@@ -15,7 +15,6 @@ enum class Suit
 	square,
 	spade,
 };
-
 enum class Value
 {
 	two = 2,

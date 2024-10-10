@@ -4,19 +4,19 @@
 
 std::string SuitToString(Suit suit)
 {
-	switch(suit)
+	switch (suit)
 	{
-		case Suit::heart: return "hearts";
-		case Suit::club: return "clubs";
-		case Suit::spade: return "spades";
-		case Suit::square: return "squares";
-		default: return "?";
+	case Suit::heart: return "hearts";
+	case Suit::club: return "clubs";
+	case Suit::spade: return "spades";
+	case Suit::square: return "squares";
+	default: return "?";
 	}
-	
+
 }
 std::string ValueToString(Value value)
 {
-	switch(value)
+	switch (value)
 	{
 	case Value::two: return "2";
 	case Value::three: return "3";
